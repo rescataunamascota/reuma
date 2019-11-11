@@ -1,0 +1,38 @@
+version: '3.7'
+services:
+  www:
+    container_name: php73
+    build:
+      context: ./builds/webserver
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - ./www:/var/www/html/
+    ports:
+      - 8080:80 
+  db:
+    container_name: mysql8
+    build:
+      context: ./builds/mysql
+      dockerfile: Dockerfile
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: reuma_db
+        MYSQL_USER: poligran
+        MYSQL_PASSWORD: mascota123
+    ports:
+      - 6033:3306
+  phpmyadmin:
+        container_name: phpadmin
+        image: phpmyadmin/phpmyadmin
+        links: 
+            - db:db
+        ports:
+            - 8000:80
+        environment:
+            MYSQL_USER: poligran
+            MYSQL_PASSWORD: mascota123
+            MYSQL_ROOT_PASSWORD: root 
