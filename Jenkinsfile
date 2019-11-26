@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker { image 'php73' } }
+    agent any 
     stages {
-        stage('build') {
+        stage('Verificación') {
             steps {
-                sh 'php --version'
+                echo 'Verificado' 
             }
         }
     }
