@@ -10,7 +10,7 @@ services:
     volumes:
       - ./www:/var/www/html/
     ports:
-      - 8080:80 
+      - 9090:80 
   db:
     container_name: mysql8
     build:
@@ -35,4 +35,17 @@ services:
         environment:
             MYSQL_USER: poligran
             MYSQL_PASSWORD: mascota123
-            MYSQL_ROOT_PASSWORD: root 
+            MYSQL_ROOT_PASSWORD: root
+  jenkins:
+      container_name: phpadmin
+      image: jenkinsci/blueocean
+      environment:
+          - DOCKER_HOST=tcp://host.docker.internal:2375
+      user: root
+      ports:
+          - "8080:8080"
+          - "8443:8443"
+          - "50000:50000"
+      volumes:
+          - ./jenkins_data:/var/jenkins_home
+          - ./home:/home
