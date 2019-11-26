@@ -37,7 +37,7 @@ services:
             MYSQL_PASSWORD: mascota123
             MYSQL_ROOT_PASSWORD: root
   jenkins:
-      container_name: phpadmin
+      container_name: jenkins
       image: jenkinsci/blueocean
       environment:
           - DOCKER_HOST=tcp://host.docker.internal:2375
