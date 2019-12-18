@@ -9,10 +9,12 @@ before_install:
 - docker ps -a
 - docker-compose build
 - docker ps -a
+- curl -s http://getcomposer.org/installer | php
+- php composer.phar install
+
+script: phpunit
 
 notifications:
   email:
     - jocastelblanco3@poligran.edu.co
     - huangulo@poligran.edu.co
-
-script: phpunit www/test.php
