@@ -13,3 +13,7 @@ before_install:
 notifications:
   email:
     - jocastelblanco3@poligran.edu.co
+    - huangulo@poligran.edu.co
+
+script: 
+  - phpunit www/test.php
