@@ -1,11 +1,12 @@
 <?php
 // CONEXCION MYSQL
 	
-	$hostname="localhost";
-	$username="reuma";
-	$password="tiz%F6bTUikbWQ";
-	$dbname="reuma";
-	//$usertable="admins";
+	$hostname="db";
+	$username="poligran";
+	$password="mascota123";
+	$dbname="reuma_db";
+    //$usertable="admins";
+    
 	
 	mysql_connect($hostname,$username, $password) or die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
 	mysql_select_db($dbname);
