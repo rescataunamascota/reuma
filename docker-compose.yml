@@ -43,6 +43,7 @@ services:
           - DOCKER_HOST=tcp://host.docker.internal:2375
       user: root
       ports:
+          - "8080:8080"
           - "8443:8443"
           - "50000:50000"
       volumes:
